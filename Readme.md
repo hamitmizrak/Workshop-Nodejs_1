@@ -114,8 +114,6 @@ npm run nodemon_1
 ---
 
 
-
-
 ## Node JS Nodemon
 ```sh
 
