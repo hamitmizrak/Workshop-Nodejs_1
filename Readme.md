@@ -9,6 +9,8 @@ DİKKKATTT: node js için her zaman  LTS olanı indirin.
 
 https://nodejs.org/en/download/prebuilt-installer
 
+LTS Kararlı Sürüm: 20.17.0 
+
 node -v
 npm -v
 ```
@@ -16,10 +18,99 @@ npm -v
 
 ## Node JS NPM INIT
 ```sh
+npm init -y 
+
+npm init
+
+package name: 
+1-) herşeyi küçük harfle yaz
+2-) boşluk kullanma bunun yerine (- veya _ kullan)
+3-) Türkçe karakterlerden (üğşçö) kullanma
+
+version: v1.0.0 (Semantic version)
+description: Html5,css3,bootstrap5 js, es, nodejs, jquery, express
+entry point: index.js
+test command: test 
+git repository: https://github.com/hamitmizrak/Workshop-Nodejs_1
+keywords: Html5,css3,bootstrap5, js, es, nodejs, nodemon, jquery, express
+author: Yüksek Bilgisayar Mühendisi Hamit Mızrak
+license: ISC
+Is this OK? yes
+```
+---
+
+## Node JS NPM INSTALL, EXPRESS, NODEMON
+```sh
+npm search express
+npm install express
+npm install express --save
+npm install express -g
+
+npm install express@4.17.1
+npm install nodemon --save-dev
+npm install nodemon -D
+
+npm uninstall express
+npm update express
+
+npm list
+npm list -g           (Global olarak herşeyi göster)
+npm list -g --depth=0 (Global olarak, sadece ana branch'e yüklediğim dosyaları göster)
+
+npm root     : Local projedeki node_modules gösterir.
+npm root -g  : Glocal projedeki node_modules gösterir.
+
+npm install
+npm update
+
+npm start
+npm test
 
 ```
 ---
 
+
+## Node JS NPM  EXPRESS, NODEMON
+```sh
+npm search express
+
+-- LOCAL --
+npm install express 
+npm install express --save
+
+npm install typescript 
+npm install typescript express
+npm install typescript@5.5.4 --save
+
+npm install nodemon --save-dev
+
+
+-- GLOBAL --
+npm install express --save -g
+npm install nodemon --save-dev -g
+npm install typescript@5.5.4 --save -g
+
+-- package.json -- 
+"script" :{
+"start": "node index.js",
+"nodemon": "nodemon index.js",
+"nodemon_q": "nodemon -q index.js",
+}
+
+npm run nodemon
+npm run nodemon_1
+
+```
+---
+
+
+
+
+## Node JS Nodemon
+```sh
+
+```
+---
 
 
 ## Node JS Nedir ?
@@ -106,11 +197,7 @@ Npm bize hızlı kodlar yazmamız için gereken alt yapıyı sunar.
 ---
 
 
-## Node JS
-```sh
 
-```
----
 
 ## Node JS
 ```sh
