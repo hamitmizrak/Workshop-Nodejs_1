@@ -92,6 +92,32 @@ npm install nodemon --save-dev
 ```sh
 npm install -g express typescript mongoose body-parser ejs
 
+express     : Node.js üzerinden hızlı ve minimal(minimalist) web uygulaması için gerekli js frameworkudur. Express sunucu tarafıdan HTTPS isteklerini yönetmek için kullanıyoruz. Yangın olarak REST API web geliştirmek için kullanıyoruz.
+typescript  :  js kullanarak OOP daha yakın uygulamalar çıkarmak. Bir dildir. interface, abstact, enum vb
+mongoose    : NoQql yer alan Mongo DB için Node.js ile MongoDB veritabanı arasında köprüdür. ODM(Object Data Modeling). Mongoose, MongoDB üzerinden C-R-U-D işlemlerimizi yapmamıza olanak sağlar
+body-parser : Express.js uygulamalarında HTTP istekler(request) gövdede(body) verilerini ayrıştırma için kullanalın bir ara katmandır(middleware). Gelen bir post istekleri `request.body` üzerinden erişim sağlıyorum. Bundan dolayı form verilerimizi ,JSON formalarındaki verilere kolayca erişim sağlamış oluruz.
+NOT: Express ^4.16.0 üstündeki sürümlerde body-parse express dahil edilmiştir.
+ejs(Embedded Javascript Templates) : 
+- EJS şablon motoru.
+- EJS: dinamik değişen verileri HTML sayfalarında an be an görmek içindir 
+- EJS: Express ile birlikte kullandığımızda sunucu tarafında dinamik HTML sayfaları oluşturmamıza olanak sağlar.
+- EJS, Javascript kodlarımızı HTML içine gömerek proje kodlarımızı interaktif bir şekilde çalışmasını sağlar.
+- EJS: Sytax  `<% %> <%= %>` bu komutları HTML içinde Javascript kodlarını rahatlıkla ekleyebilirsiniz. Bundan dolayı veritabanındaki verileri dinamik olarak son kullanıcı(end user) gösterebiliriz.  
+```
+---
+
+
+## Node JS Nodemon
+```sh
+Nodemon_
+
+-- package.json -- 
+"script" :{
+"start": "node index.js",
+"nodemon": "nodemon index.js",
+"nodemon_q": "nodemon -q index.js",
+}
+
 ```
 ---
 
@@ -125,13 +151,6 @@ npm install typescript@5.5.4 --save -g
 
 npm run nodemon
 npm run nodemon_1
-
-```
----
-
-
-## Node JS Nodemon
-```sh
 
 ```
 ---
