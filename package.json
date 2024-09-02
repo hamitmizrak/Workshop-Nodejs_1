@@ -1,0 +1,40 @@
+{
+  "name": "blog_project",
+  "version": "1.0.0",
+  "description": "Html5,css3, js, es, nodejs, jquery, express\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D bootstrap5, nodejs, javascript, jquery, express js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "nodemon": "nodemon index.js",
+    "nodemon_q": "nodemon -q index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamitmizrak/Workshop-Nodejs_1.git"
+  },
+  "keywords": [
+    "Html5",
+    "css3",
+    "bootstrap5",
+    "js",
+    "es",
+    "nodejs",
+    "nodemon",
+    "jquery",
+    "express"
+  ],
+  "author": "Yüksek Bilgisayar Mühendisi Hamit Mızrak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamitmizrak/Workshop-Nodejs_1/issues"
+  },
+  "homepage": "https://github.com/hamitmizrak/Workshop-Nodejs_1#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
