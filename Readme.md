@@ -80,6 +80,22 @@ npm test
 ---
 
 
+## NPM LOCAL INSTALL
+```sh
+npm install express typescript mongoose body-parser ejs
+npm install nodemon --save-dev
+
+```
+---
+
+## NPM GLOCAL INSTALL
+```sh
+npm install -g express typescript mongoose body-parser ejs
+
+```
+---
+
+
 ## Node JS NPM  EXPRESS, NODEMON
 ```sh
 npm search express
