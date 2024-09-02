@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+}
+
+body{
+    background-color: #f2f2f2;
+    color: black;
+}
