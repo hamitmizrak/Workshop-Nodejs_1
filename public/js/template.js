@@ -1,0 +1,1 @@
+alert(" Template JS Deneme ");
