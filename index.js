@@ -1,6 +1,6 @@
-alert("Javascript çalıştı");
+alert("index.js Javascript çalıştı");
 
-console.error("Javascript error");
-console.warn("Javascript warn");
-console.log("Javascript log");
-console.info("Javascript info");
+console.error("index.js Javascript error");
+console.warn("index.js Javascript warn");
+console.log("index.js Javascript log");
+console.info("index.js Javascript info");
