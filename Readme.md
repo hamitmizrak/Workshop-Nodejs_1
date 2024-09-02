@@ -1,6 +1,26 @@
 # Workshop Node JS
-[GitHub Node Js ]()
+[GitHub Node Js ](https://github.com/hamitmizrak/Workshop-Nodejs_1)
+[Node JS](https://nodejs.org/en)
 --- 
+
+## Node JS Download
+```sh
+DİKKKATTT: node js için her zaman  LTS olanı indirin.
+
+https://nodejs.org/en/download/prebuilt-installer
+
+node -v
+npm -v
+```
+---
+
+## Node JS NPM INIT
+```sh
+
+```
+---
+
+
 
 ## Node JS Nedir ?
 ```sh
@@ -12,7 +32,6 @@ NodeJS :
 - Ryan Dahl ve Isaac Z. Schluter tarafından 2009 yılında geliştirmeye başlamış.
 ```
 ---
-
 
 
 ## Node JS Özellikleri
@@ -33,7 +52,6 @@ Event-Driven (Olay odaklıdır),Non-Blocking I/O Modeli (Engelsiz Input(Girdi), 
 ---
 
 
-
 ## Node JS Olay odaklı(event-driven) , engelsiz(non-blocking) I/O Modeli, Event Loop
 ```sh
 - Bu model amacı performans metriğini artırmak içindir
@@ -47,17 +65,6 @@ Event-Driven (Olay odaklıdır),Non-Blocking I/O Modeli (Engelsiz Input(Girdi), 
 ```
 ---
 
-
-
-## Npm Nedir
-```sh
-Npm(Node Package Management): Paket yönetim sistemidir.
-Npm bize hızlı kodlar yazmamız için gereken alt yapıyı sunar.
-```
----
-
-
-
 ## Node JS Tarihçesi
 ```sh
 2009 geliştirilmeye başlandı
@@ -66,8 +73,6 @@ Windows
 LTS(Long Term Support: Uzaun vadeli destek)
 ```
 ---
-
-
 
 ## Node JS Node JS Framework
 ```sh
@@ -79,7 +84,6 @@ LTS(Long Term Support: Uzaun vadeli destek)
 - Hapi.js (Büyük ölçekli projeler için uygundur)
 ```
 ---
-
 
 ## Node JS Framework Express
 ```sh
@@ -94,13 +98,13 @@ LTS(Long Term Support: Uzaun vadeli destek)
 ```
 ---
 
-
-
-## Node JS
+## Npm Nedir
 ```sh
-
+Npm(Node Package Management): Paket yönetim sistemidir.
+Npm bize hızlı kodlar yazmamız için gereken alt yapıyı sunar.
 ```
 ---
+
 
 ## Node JS
 ```sh
