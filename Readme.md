@@ -13,6 +13,8 @@ NodeJS :
 ```
 ---
 
+
+
 ## Node JS Özellikleri
 ```sh
 Javascript betik dilimiz senkron(Aynı anda sadece bir iş yapan) çalışır.
@@ -30,6 +32,23 @@ Event-Driven (Olay odaklıdır),Non-Blocking I/O Modeli (Engelsiz Input(Girdi), 
 ```
 ---
 
+
+
+## Node JS Olay odaklı(event-driven) , engelsiz(non-blocking) I/O Modeli, Event Loop
+```sh
+- Bu model amacı performans metriğini artırmak içindir
+- Olay odaklı programlamada, bir programın olaylar(event) tepki verme şeklidir.
+- Uzun süren işlemlerde(Ağ etkileşimi) bazen bekleyebiliyoruz. Biz bunu asenkron olarak işlersek beklemeden diğer işlemlerin sürdürülebilirliğini artırmış oluruz.
+- Yani işlemlerin tamamlanmasını beklemeden diğer tetiklenen(trigger) olaylara yanıt vermedir.
+- Aynı anda  birden fazla işlem(process) çalışır ve bloke olmadan devam eder.
+- Event-Loop(Olay döngüsü): uygulamaları dinliyor ve işlem bekleyenleri işliyor.
+- Callback function: programalada callback functionlar olay odaklı programlanın bir parçasıdır.
+- Olay odaklı bu model ölçeklenebilinirliliğini sağlar ve eş zamanlı çalışmayı sağlar
+```
+---
+
+
+
 ## Npm Nedir
 ```sh
 Npm(Node Package Management): Paket yönetim sistemidir.
@@ -37,7 +56,9 @@ Npm bize hızlı kodlar yazmamız için gereken alt yapıyı sunar.
 ```
 ---
 
-## Node JS Tarihçsi
+
+
+## Node JS Tarihçesi
 ```sh
 2009 geliştirilmeye başlandı
 2010 Non-blocking (Engelsiz)
@@ -46,26 +67,34 @@ LTS(Long Term Support: Uzaun vadeli destek)
 ```
 ---
 
-## Node JS
-```sh
-Node JS çalışma arkadaşları:
-Express(Middleware: orta katman), node js için popüler bir web geliştirme platformudur. 
-Veri tabanı erişimlerinde MongoDB, mysql, postgresql
 
+
+## Node JS Node JS Framework
+```sh
+- Express.js (En popüler olanı) hafiftir.
+- Koa.js (ES6 destekliyor) daha az kod
+- Nest.js (TS ile geliştirildi)
+- Meteor.js (Full- stack) JS uygulamaları geliştirmek için uygundur.
+- Sails.js (MVC) mimarisine dayanır.
+- Hapi.js (Büyük ölçekli projeler için uygundur)
 ```
 ---
 
-## Node JS
-```sh
 
+## Node JS Framework Express
+```sh
+- Middleware: orta katman için uygundur.
+- Esnektir, 
+- Hızlıdır (Minimalist)
+- SPA uygulamalarında(Single Page Application) idealdir SPA(React,Angular)
+- node js için en popüler hafif,esnek, bir web geliştirme platformudur. 
+- Http istekleri (GET,POST,PUT, DELETE) için birçok özellikler sağlar.
+- Hızlı prototype oluşturmada, RESTful API geliştirmede 
+- Yönlendirme (Routing): Yönlendirme mekanizması vardır.
 ```
 ---
 
-## Node JS
-```sh
 
-```
----
 
 ## Node JS
 ```sh
