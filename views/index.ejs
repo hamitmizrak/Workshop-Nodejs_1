@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- for language  -->
+    <meta charset="utf-8" />
+
+    <!-- Reponsive Design -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- External css -->
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+
+  <body class="container">
+    <!-- start codes -->
+
+    <h1 class="text-center text-uppercase text-primary"> Blog Sayfası</h1>
+
+    <!-- Blog Form -->
+     <form id="blog-form">
+        <!-- BLOG HEADER -->
+        <div class="form-group">
+            <span for="header">Header</span>
+            <input type="text" id="header" name="header" class="form-control" placeholder="blog başlığı" required autofocus />
+        </div>
+
+         <!-- BLOG CONTENT -->
+         <div class="form-group">
+            <span for="content">Content</span>
+            <input type="text" id="content" name="content" class="form-control" placeholder="blog içeriği" required />
+        </div>
+
+         <!-- BLOG HEADER -->
+         <div class="form-group">
+            <span for="author">Author</span>
+            <input type="text" id="author" name="author" class="form-control" placeholder="blog yazarı" required />
+        </div>
+
+        <div class="form-group">
+            <input type="reset" value="Temizle" class=" btn btn-danger">
+            <button type="submit" class=" btn btn-primary"> Gönder </button>
+        </div>
+     </form>
+
+     <hr>
+     <h2 class="text-primary">Blog</h2>
+     <!-- table.table.table-hover.table-striped>thead>tr>(th{id})*5 -->
+     <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>header</th>
+                <th>content</th>
+                <th>author</th>
+                <th>created date</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+     </table>
+
+    <!-- end codes -->
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- external js -->
+    <script src="/js/template.js"></script>
+  </body>
+</html>
