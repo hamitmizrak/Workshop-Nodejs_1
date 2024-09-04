@@ -77,11 +77,13 @@ $(document).ready(function () {
 
   ////////////////////////////////////////////////////
   // Blog Güncelleme
-  $("#blog-form").off("submit").on("submit", function (event) {
-    event.preventDefault();
+  $("#blog-form")
+    .off("submit")
+    .on("submit", function (event) {
+      event.preventDefault();
 
-     // Blog Form'da verileri almak için
-     const blogData = {
+      // Blog Form'da verileri almak için
+      const blogData = {
         // Blog Form'da verileri almak için
         header: $("#header").val(),
         content: $("#content").val(),
@@ -93,15 +95,17 @@ $(document).ready(function () {
         method: "PUT",
         data: blogData,
         success: function () {
-            // Güncelle işleminden  için listeyi tazele
-        blogList();
+          // Güncelle işleminden  için listeyi tazele
+          blogList();
 
-        $("#blog-form")[0].reset();
+          $("#blog-form")[0].reset();
 
-        $("#blog-form").off("submit").on("submit", function (event) {
-            event.preventDefault();
+          $("#blog-form")
+            .off("submit")
+            .on("submit", function (event) {
+              event.preventDefault();
 
-            const blogDataUpdate = {
+              const blogDataUpdate = {
                 // Blog Form'da verileri almak için
                 header: $("#header").val(),
                 content: $("#content").val(),
@@ -109,10 +113,17 @@ $(document).ready(function () {
               }; //end blogDataUpdate
 
               $.ajax({
-                
+                url: "/blog",
+                method: "POST",
+                data: blogDataUpdate,
+                success: function (data) {
+                  // Silme işleminden sonrası için listeyi tazele
+                  blogList();
+                  $("#blog-form")[0].reset();
+                },
               }); // end ajax
-
-        } //end success
-
-  ////////////////////////////////////////////////////
-}); //end document ready
+            }); // end on
+        }, //end success
+      }); // end ajax
+    }); //end log Güncelleme
+}); // end document ready
