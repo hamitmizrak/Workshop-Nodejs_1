@@ -22,8 +22,8 @@ $(document).ready(function () {
                  <td>${item.content}</td>
                  <td>${item.author}</td>
                 </tr>
-                <button class="btn btn-primary">Güncelle</button>
-                <button class="btn btn-danger">Sil</button>
+                <button class="btn btn-primary edit-btn">Güncelle</button>
+                <button class="btn btn-danger delete-btn">Sil</button>
                 `); //end append
         }); //end for each item
       }, //end success
@@ -39,18 +39,18 @@ $(document).ready(function () {
     event.preventDefault();
 
     // Blog Form'da verileri almak için
-    const blogData = {
+    const blogDataCreate = {
       // Blog Form'da verileri almak için
       header: $("#header").val(),
       content: $("#content").val(),
       author: $("#author").val(),
     };
 
-    // Aldığım verileri kaydetmek
+    // Aldığım verileri kaydetmek (AJAX)
     $.ajax({
       url: "/blog",
       method: "POST",
-      data: blogData,
+      data: blogDataCreate,
       success: function (data) {
         // Ekledikten sonraki işlem için listeyi tazele
         blogList();
@@ -61,6 +61,58 @@ $(document).ready(function () {
 
   ////////////////////////////////////////////////////
   // blog Silme
+  $("#blog-form").on("click", ".delete-btn", function (event) {
+    const id = $(this).closest("tr").data("id");
 
+    // Silme (Ajax)
+    $.ajax({
+      url: "/blog/${id}",
+      method: "DELETE",
+      success: function () {
+        // Silme işleminden sonrası için listeyi tazele
+        blogList();
+      },
+    }); //end Ajax
+  }); //blog Silme
 
+  ////////////////////////////////////////////////////
+  // Blog Güncelleme
+  $("#blog-form").off("submit").on("submit", function (event) {
+    event.preventDefault();
+
+     // Blog Form'da verileri almak için
+     const blogData = {
+        // Blog Form'da verileri almak için
+        header: $("#header").val(),
+        content: $("#content").val(),
+        author: $("#author").val(),
+      };
+
+      $.ajax({
+        url: "/blog/${id}",
+        method: "PUT",
+        data: blogData,
+        success: function () {
+            // Güncelle işleminden  için listeyi tazele
+        blogList();
+
+        $("#blog-form")[0].reset();
+
+        $("#blog-form").off("submit").on("submit", function (event) {
+            event.preventDefault();
+
+            const blogDataUpdate = {
+                // Blog Form'da verileri almak için
+                header: $("#header").val(),
+                content: $("#content").val(),
+                author: $("#author").val(),
+              }; //end blogDataUpdate
+
+              $.ajax({
+                
+              }); // end ajax
+
+        } //end success
+
+  ////////////////////////////////////////////////////
 }); //end document ready
