@@ -26,49 +26,73 @@
   <body class="container">
     <!-- start codes -->
 
-    <h1 class="text-center text-uppercase text-primary"> Blog Sayfası</h1>
+    <h1 class="text-center text-uppercase text-primary">Blog Sayfası</h1>
 
     <!-- Blog Form -->
-     <form id="blog-form">
-        <!-- BLOG HEADER -->
-        <div class="form-group">
-            <span for="header">Header</span>
-            <input type="text" id="header" name="header" class="form-control" placeholder="blog başlığı" required autofocus />
-        </div>
+    <form id="blog-form">
+      <!-- BLOG HEADER -->
+      <div class="form-group">
+        <span for="header">Header</span>
+        <input
+          type="text"
+          id="header"
+          name="header"
+          class="form-control"
+          placeholder="blog başlığı"
+          required
+          autofocus
+        />
+      </div>
 
-         <!-- BLOG CONTENT -->
-         <div class="form-group">
-            <span for="content">Content</span>
-            <input type="text" id="content" name="content" class="form-control" placeholder="blog içeriği" required />
-        </div>
+      <!-- BLOG CONTENT -->
+      <div class="form-group">
+        <span for="content">Content</span>
+        <input
+          type="text"
+          id="content"
+          name="content"
+          class="form-control"
+          placeholder="blog içeriği"
+          required
+        />
+      </div>
 
-         <!-- BLOG HEADER -->
-         <div class="form-group">
-            <span for="author">Author</span>
-            <input type="text" id="author" name="author" class="form-control" placeholder="blog yazarı" required />
-        </div>
+      <!-- BLOG HEADER -->
+      <div class="form-group">
+        <span for="author">Author</span>
+        <input
+          type="text"
+          id="author"
+          name="author"
+          class="form-control"
+          placeholder="blog yazarı"
+          required
+        />
+      </div>
 
-        <div class="form-group">
-            <input type="reset" value="Temizle" class=" btn btn-danger">
-            <button type="submit" class=" btn btn-primary"> Gönder </button>
-        </div>
-     </form>
+      <div class="form-group">
+        <input type="reset" value="Temizle" class="btn btn-danger" />
+        <button type="submit" class="btn btn-primary">Gönder</button>
+      </div>
+    </form>
 
-     <hr>
-     <h2 class="text-primary">Blog</h2>
-     <!-- table.table.table-hover.table-striped>thead>tr>(th{id})*5 -->
-     <table class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>header</th>
-                <th>content</th>
-                <th>author</th>
-                <th>created date</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-     </table>
+    <hr />
+    <h2 class="text-primary">Blog</h2>
+    <!-- table.table.table-hover.table-striped>thead>tr>(th{id})*5 -->
+    <table id="blog-table" class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>header</th>
+          <th>content</th>
+          <th>author</th>
+          <th>created date</th>
+        </tr>
+      </thead>
+      <!-- tbody -->
+      <tbody></tbody>
+    </table><!-- end table -->
+    
 
     <!-- end codes -->
     <!-- Bootstrap JavaScript Libraries -->
@@ -88,6 +112,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- external js -->
-    <script src="/js/template.js"></script>
+    <script src="/js/public.js"></script>
   </body>
 </html>
