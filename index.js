@@ -9,8 +9,8 @@ console.info("index.js Server ayağa kalktı");
 // npm run start
 // node index.js
 
-///////////////////////////////////////////////////////////////////////////// 
-///////////////////////////////////////////////////////////////////////////// 
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 
 // Express, Mongo, BodyParser
 
@@ -30,8 +30,8 @@ const app = express();
 const databaseUrl="mongodb+srv://hamitmizrak:hW2uLZCdHkjheB8l@cluster0.zbkvc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Eskiden
-// mongoose.connect(`${databaseUrl}`,{useNewUrlParser:true, useUnifiedTopology:true }); 
-mongoose.connect(`${databaseUrl}`); 
+// mongoose.connect(`${databaseUrl}`,{useNewUrlParser:true, useUnifiedTopology:true });
+mongoose.connect(`${databaseUrl}`);
 
 // Orta katmanlar (Middleware)
 app.use(bodyParser.urlencoded({extended:true}));
@@ -56,7 +56,9 @@ app.get('/', (request,response)=>{
 1024-49151
 49152-65535
 */
-const port= 3000;
+
+//const port= 3000;
+const port= 1111; // nginx için değiştirdim.
 app.listen(port,()=>{
     console.log(`Sunucu: ${port} portunda dinliyor. http://localhost:${port}`);
 });
