@@ -1,5 +1,4 @@
-// MongoDB için veritabanı işlemlerinde kullanmak üzere `BlogModel` adında model oluşturalım
-
+// MongoDB için veritabanı işlemlerinde kullanmak üzere `BlogModel` adında model oluşturalım.
 // Mongoose adında ki kütüphaneyi ekle ve bu kütüphaneye erişmek için `mongoose` adını kullan.
 const mongoose = require('mongoose');
 
@@ -12,7 +11,6 @@ const PostSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     }
-
 }); //end PostSchema
 
 // Module 
