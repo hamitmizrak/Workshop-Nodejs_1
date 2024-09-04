@@ -21,7 +21,9 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Mongo db bağlantısı
-mongoose.connect('mongodb://localhost/blog',{useNewUrlParser:true, useUnifiedTopology:true }); 
+// Mongodb cloud içinde cluster oluştur ve oluşturduğun URL buraya ekle
+const databaseUrl="localhost/blog";
+mongoose.connect(`mongodb://${databaseUrl}`,{useNewUrlParser:true, useUnifiedTopology:true }); 
 
 // Orta katmanlar (Middleware)
 app.use(bodyParser.urlencoded({extended:true}));
