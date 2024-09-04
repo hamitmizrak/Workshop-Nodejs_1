@@ -1,4 +1,4 @@
-alert("public/js/public.js");
+//alert("public/js/public.js");
 
 // header: String,
 // content: String,
@@ -11,19 +11,25 @@ $(document).ready(function () {
     $.ajax({
       url: "/blog",
       method: "GET",
-      succes: function (data) {
+      success: function (data) {
         $("#blog-table tbody").empty();
 
         // forEach
         data.forEach(function (item) {
           $("#blog-table tbody").append(`
                 <tr data-id="${item._id}">
-                 <td>${item.header}</td>
-                 <td>${item.content}</td>
-                 <td>${item.author}</td>
+                    <td>${item._id}</td>
+                    <td>${item.header}</td>
+                    <td>${item.content}</td>
+                    <td>${item.author}</td>
+                    <td>${item.date}</td>
+
+                    <td>
+                        <button class="btn btn-primary edit-btn">Güncelle</button>
+                        <button class="btn btn-danger delete-btn">Sil</button>
+                    </td>
+
                 </tr>
-                <button class="btn btn-primary edit-btn">Güncelle</button>
-                <button class="btn btn-danger delete-btn">Sil</button>
                 `); //end append
         }); //end for each item
       }, //end success
@@ -56,74 +62,67 @@ $(document).ready(function () {
         blogList();
         $("#blog-form")[0].reset();
       }, //end success
+      error: function (xhr, status, error) {
+        console.log("Blog Ekleme işlemi başarısız:", error); // Hata mesajını göster
+      },
     }); //end submit ajax
   }); // end Blog Add submit
 
   ////////////////////////////////////////////////////
-  // blog Silme
-  $("#blog-form").on("click", ".delete-btn", function (event) {
+  // Blog Silme
+  $("#blog-table tbody").on("click", ".delete-btn", function () {
+    alert("silme");
     const id = $(this).closest("tr").data("id");
 
     // Silme (Ajax)
     $.ajax({
-      url: "/blog/${id}",
+      url: `/blog/${id}`,
       method: "DELETE",
       success: function () {
         // Silme işleminden sonrası için listeyi tazele
         blogList();
       },
-    }); //end Ajax
-  }); //blog Silme
+      error: function (xhr, status, error) {
+        console.log("Silme işlemi başarısız:", error);
+      },
+    });
+  });
 
-  ////////////////////////////////////////////////////
   // Blog Güncelleme
-  $("#blog-form")
-    .off("submit")
-    .on("submit", function (event) {
-      event.preventDefault();
+  $("#blog-table tbody").on("click", ".edit-btn", function () {
+    alert("güncelleme");
+    const row = $(this).closest("tr");
+    const id = row.data("id");
+    const header = row.find("td:eq(1)").text(); // header ikinci sütunda
+    const content = row.find("td:eq(2)").text(); // content üçüncü sütunda
+    const author = row.find("td:eq(3)").text(); // author dördüncü sütunda
 
-      // Blog Form'da verileri almak için
-      const blogData = {
-        // Blog Form'da verileri almak için
-        header: $("#header").val(),
-        content: $("#content").val(),
-        author: $("#author").val(),
-      };
+    $("#header").val(header);
+    $("#content").val(content);
+    $("#author").val(author);
 
-      $.ajax({
-        url: "/blog/${id}",
-        method: "PUT",
-        data: blogData,
-        success: function () {
-          // Güncelle işleminden  için listeyi tazele
-          blogList();
+    $("#blog-form")
+      .off("submit")
+      .on("submit", function (event) {
+        event.preventDefault();
+        const blogData = {
+          header: $("#header").val(),
+          content: $("#content").val(),
+          author: $("#author").val(),
+        };
 
-          $("#blog-form")[0].reset();
-
-          $("#blog-form")
-            .off("submit")
-            .on("submit", function (event) {
-              event.preventDefault();
-
-              const blogDataUpdate = {
-                // Blog Form'da verileri almak için
-                header: $("#header").val(),
-                content: $("#content").val(),
-                author: $("#author").val(),
-              }; //end blogDataUpdate
-
-              $.ajax({
-                url: "/blog",
-                method: "POST",
-                data: blogDataUpdate,
-                success: function (data) {
-                  // Silme işleminden sonrası için listeyi tazele
-                  blogList();
-                  $("#blog-form")[0].reset();
-                },
-              }); // end ajax
-            }); // end on
-        }, //end success
-      }); // end ajax
-    }); //end log Güncelleme
-}); // end document ready
+        $.ajax({
+          url: `/blog/${id}`,
+          method: "PUT",
+          data: blogData,
+          success: function () {
+            blogList();
+            $("#blog-form")[0].reset();
+          },
+          error: function (xhr, status, error) {
+            console.log("Güncelleme işlemi başarısız:", error);
+          },
+        });
+      });
+  });
+});

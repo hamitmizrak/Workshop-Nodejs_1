@@ -21,7 +21,7 @@ const MongooseBlogModelApi = require("../models/mongoose_blog_models");
 
 ////////////////////////////////
 // CREATE BLOG
-router.blogPost("/", async (request, response) => {
+router.post("/", async (request, response) => {
   // Mongoose Blog Model Verileri Almak
   const create = new MongooseBlogModelApi({
     header: request.body.header,
@@ -46,7 +46,7 @@ router.blogPost("/", async (request, response) => {
 
 ////////////////////////////////
 // FIND BLOG
-router.blogFind("/", async (request, response) => {
+router.get("/", async (request, response) => {
   try {
     const find = await MongooseBlogModelApi.find();
     response.status(200).json(find);
@@ -64,11 +64,11 @@ router.blogFind("/", async (request, response) => {
 ////////////////////////////////
 // UPDATE BLOG
 // Güncelleme ve Silme işlemlerinde ID'e göre yapılır.
-router.blogUpdate("/:id", async (request, response) => {
+router.put("/:id", async (request, response) => {
   try {
     const update = await MongooseBlogModelApi.findByIdAndUpdate(
       request.params.id,
-      response.body,
+      request.body,
       { new: true }
     );
     response.status(200).json(update);
@@ -85,10 +85,15 @@ router.blogUpdate("/:id", async (request, response) => {
 
 ////////////////////////////////
 // DELETE BLOG
-router.blogDelete("/:id", async (request, response) => {
+router.delete("/:id", async (request, response) => {
   try {
-    await MongooseBlogModelApi.findByIdAndDelete(request.params.id);
-    response.status(200).json({ message: "Blog Id silindir" });
+    const id= request.params.id;
+    console.log(id);
+    
+   const result= await MongooseBlogModelApi.findByIdAndDelete(id);
+   console.log(result);
+   
+    response.status(200).json({ message: "Blog Id silindi." });
   } catch (err) {
     response
       .status(400)

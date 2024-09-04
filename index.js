@@ -1,9 +1,9 @@
-alert("index.js Javascript çalıştı");
+//alert("index.js Javascript çalıştı");
 
-console.error("index.js Javascript error");
-console.warn("index.js Javascript warn");
-console.log("index.js Javascript log");
-console.info("index.js Javascript info");
+//console.error("index.js Javascript error");
+//console.warn("index.js Javascript warn");
+//console.log("index.js Javascript log");
+console.info("index.js Server ayağa kalktı");
 
 // npm start
 // npm run start
@@ -21,9 +21,17 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Mongo db bağlantısı
+// npm install mongodb
 // Mongodb cloud içinde cluster oluştur ve oluşturduğun URL buraya ekle
-const databaseUrl="localhost/blog";
-mongoose.connect(`mongodb://${databaseUrl}`,{useNewUrlParser:true, useUnifiedTopology:true }); 
+// https://cloud.mongodb.com/v2/65afa13b68122c4c16c1e42a#/overview
+// username: hamitmizrak
+// password: hW2uLZCdHkjheB8l
+//const databaseUrl="localhost/blog";
+const databaseUrl="mongodb+srv://hamitmizrak:hW2uLZCdHkjheB8l@cluster0.zbkvc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// Eskiden
+// mongoose.connect(`${databaseUrl}`,{useNewUrlParser:true, useUnifiedTopology:true }); 
+mongoose.connect(`${databaseUrl}`); 
 
 // Orta katmanlar (Middleware)
 app.use(bodyParser.urlencoded({extended:true}));
@@ -51,5 +59,4 @@ app.get('/', (request,response)=>{
 const port= 3000;
 app.listen(port,()=>{
     console.log(`Sunucu: ${port} portunda dinliyor. http://localhost:${port}`);
-    
 });
