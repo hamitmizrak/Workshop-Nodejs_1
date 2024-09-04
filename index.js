@@ -5,6 +5,8 @@ console.warn("index.js Javascript warn");
 console.log("index.js Javascript log");
 console.info("index.js Javascript info");
 
+// npm start
+// npm run start
 // node index.js
 
 ///////////////////////////////////////////////////////////////////////////// 
