@@ -1,4 +1,3 @@
-
 //console.error("index.js Javascript error");
 //console.warn("index.js Javascript warn");
 //console.log("index.js Javascript log");
@@ -13,9 +12,9 @@ console.info("index.js Server ayağa kalktı");
 
 // Express, Mongo, BodyParser
 // Import
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const app = express();
 
 // Mongo db bağlantısı
@@ -25,27 +24,40 @@ const app = express();
 // username: hamitmizrak
 // password: hW2uLZCdHkjheB8l
 //const databaseUrl="localhost/blog";
-const databaseUrl="mongodb+srv://hamitmizrak:hW2uLZCdHkjheB8l@cluster0.zbkvc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// 1.YOL (LOCALHOST Mongo DB)
+//const databaseUrl="mongodb://localhost:27017/blogDB";
+
+// 2.YOL (ClOUD Mongo DB için)
+const databaseUrl =
+  "mongodb+srv://hamitmizrak:hW2uLZCdHkjheB8l@cluster0.zbkvc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Eskiden
 // mongoose.connect(`${databaseUrl}`,{useNewUrlParser:true, useUnifiedTopology:true });
-mongoose.connect(`${databaseUrl}`);
+mongoose
+  .connect(`${databaseUrl}`)
+  .then(() => {
+    console.log("MongoDB'ye Başarıyla bağlanıldı");
+  })
+  .catch((err) => {
+    console.error("MongoDB'ye Bağlantı Hatası", err);
+  });
 
 // Orta katmanlar (Middleware)
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // EJS için Görüntüleme Motorunu Set
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 // Rotalar (Router)
-const blogRoutes = require('./routes/blog_routes');
-app.use('/blog', blogRoutes);
+const blogRoutes = require("./routes/blog_routes");
+app.use("/blog", blogRoutes);
 
 // Anasayfa Path
-app.get('/', (request,response)=>{
-    response.render('index');
+app.get("/", (request, response) => {
+  response.render("index");
 });
 
 // Sunucuyu Başlatma
@@ -56,7 +68,9 @@ app.get('/', (request,response)=>{
 */
 
 //const port= 3000;
-const port= 1111; // nginx için değiştirdim.
-app.listen(port,()=>{
-    console.log(`NodeJS Sunucusu: ${port} portunda dinliyor. http://localhost:${port}`);
+const port = 1111; // nginx için değiştirdim.
+app.listen(port, () => {
+  console.log(
+    `NodeJS Sunucusu: ${port} portunda dinliyor. http://localhost:${port}`
+  );
 });
