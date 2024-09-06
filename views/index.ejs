@@ -35,47 +35,62 @@
 
     <!-- Blog Form -->
     <form id="blog-form">
+
       <!-- BLOG HEADER -->
-      <div class="form-group">
+      <div class="form-group mb-3">
         <span for="header">Header</span>
+        <!-- required kaldırdım -->
         <input
           type="text"
           id="header"
           name="header"
           class="form-control"
           placeholder="blog başlığı"
-          required
           autofocus
         />
       </div>
 
       <!-- BLOG CONTENT -->
-      <div class="form-group">
-        <span for="content">Content</span>
-        <input
-          type="text"
-          id="content"
-          name="content"
-          class="form-control"
-          placeholder="blog içeriği"
-          required
-        />
+      <div class="form-group mb-3">
+        <span for="content" class="form-label">Content</span>
+        <!-- required kaldırdım -->
+        <textarea 
+        class="form-control" 
+        name="content" 
+        id="content" 
+        placeholder="blog içeriği"
+        rows="3"></textarea>
       </div>
 
-      <!-- BLOG HEADER -->
-      <div class="form-group">
+
+      <!-- BLOG AUTHOR -->
+      <div class="form-group mb-3">
         <span for="author">Author</span>
+        <!-- required kaldırdım -->
         <input
           type="text"
           id="author"
           name="author"
           class="form-control"
           placeholder="blog yazarı"
-          required
         />
       </div>
 
-      <div class="form-group">
+       <!-- BLOG TAGS -->
+       <div class="form-group mb-3">
+        <span for="tags">Tags</span>
+        <!-- required kaldırdım -->
+        <input
+          type="text"
+          id="tags"
+          name="tags"
+          class="form-control"
+          placeholder="blog yazarı"
+        />
+      </div>
+
+
+      <div class="form-group mb-3">
         <input type="reset" value="Temizle" class="btn btn-danger" />
         <button type="submit" class="btn btn-primary">Gönder</button>
       </div>
@@ -87,12 +102,13 @@
     <table id="blog-table" class="table table-hover table-striped">
       <thead>
         <tr>
-          <th>id</th>
-          <th>header</th>
-          <th>content</th>
-          <th>author</th>
-          <th>created date</th>
-          <th>Actions</th>
+          <th class="text-uppercase">id</th>
+          <th class="text-uppercase">header</th>
+          <th class="text-uppercase">content</th>
+          <th class="text-uppercase">author</th>
+          <th class="text-uppercase">tags</th>
+          <th class="text-uppercase">created date</th>
+          <th class="text-uppercase">Actions</th>
         </tr>
       </thead>
       <!-- tbody -->

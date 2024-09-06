@@ -1,4 +1,4 @@
-//alert("public/js/public.js");
+// alert("public/js/public.js");
 
 // header: String,
 // content: String,
@@ -30,6 +30,7 @@ $(document).ready(function () {
                     <td>${item.header}</td>
                     <td>${item.content}</td>
                     <td>${item.author}</td>
+                    <td>${item.tags}</td>
                     <td>${item.date}</td>
 
                     <td>
@@ -59,6 +60,7 @@ $(document).ready(function () {
       header: $("#header").val(),
       content: $("#content").val(),
       author: $("#author").val(),
+      tags: $("#tags").val(),
     };
 
     // Aldığım verileri kaydetmek (AJAX)
@@ -124,13 +126,15 @@ $(document).ready(function () {
 
     // Eğer onayımızı evetse
     if (confirmation) {
-      const header = row.find("td:eq(1)").text(); // header ikinci sütunda
+    const header = row.find("td:eq(1)").text(); // header ikinci sütunda
     const content = row.find("td:eq(2)").text(); // content üçüncü sütunda
     const author = row.find("td:eq(3)").text(); // author dördüncü sütunda
+    const tags = row.find("td:eq(4)").text(); // author dördüncü sütunda
 
     $("#header").val(header);
     $("#content").val(content);
     $("#author").val(author);
+    $("#tags").val(tags);
 
     $("#blog-form")
       .off("submit")
@@ -140,6 +144,7 @@ $(document).ready(function () {
           header: $("#header").val(),
           content: $("#content").val(),
           author: $("#author").val(),
+          tags: $("#tags").val(),
         };
 
         $.ajax({

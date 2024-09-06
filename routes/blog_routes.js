@@ -32,6 +32,7 @@ router.post("/", async (request, response) => {`
     header: request.body.header,
     content: request.body.content,
     author: request.body.author,
+    tags: request.body.tags,
   }); //end create
 
   // Mongoose Blog Model Alınan Verileri Göndermek
