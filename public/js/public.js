@@ -83,34 +83,48 @@ $(document).ready(function () {
 
   ////////////////////////////////////////////////////
   // Blog Silme
-  // confirm 
+  // confirm
   $("#blog-table tbody").on("click", ".delete-btn", function () {
-    alert("silme");
+    //alert("silme");
 
     // İlgili satırdaki id almak için
     const id = $(this).closest("tr").data("id");
 
-    // Silme (Ajax)
-    $.ajax({
-      url: `/blog/${id}`,
-      method: "DELETE",
-      success: function () {
-        // Silme işleminden sonrası için listeyi tazele
-        blogList();
-      },
-      error: function (xhr, status, error) {
-        console.log("Silme işlemi başarısız:", error);
-      },
-    });
-  });
+    // Onay Mesajı
+    const confirmation = confirm(`${id} nolu Blog'u Silmek İstiyor musunuz ?`);
+
+    // Eğer onayımızı evetse
+    if (confirmation) {
+      // Silme (Ajax)
+      $.ajax({
+        url: `/blog/${id}`,
+        method: "DELETE",
+        success: function () {
+          // Silme işleminden sonrası için listeyi tazele
+          blogList();
+        },
+        error: function (xhr, status, error) {
+          console.log("Silme işlemi başarısız:", error);
+        },
+      });
+    } else {
+      console.error(`${id} nolu Blog silinmedi`);
+    }
+  }); //end Silmek
 
   /////////////////////////////////////////////////////////////
   // Blog Güncelleme
   $("#blog-table tbody").on("click", ".edit-btn", function () {
-    alert("güncelleme");
+    //alert("güncelleme");
     const row = $(this).closest("tr");
     const id = row.data("id");
-    const header = row.find("td:eq(1)").text(); // header ikinci sütunda
+
+    // Onay Mesajı
+    const confirmation = confirm(`${id} nolu Blog'u Güncellemek İstiyor musunuz ?`);
+
+    // Eğer onayımızı evetse
+    if (confirmation) {
+      const header = row.find("td:eq(1)").text(); // header ikinci sütunda
     const content = row.find("td:eq(2)").text(); // content üçüncü sütunda
     const author = row.find("td:eq(3)").text(); // author dördüncü sütunda
 
@@ -139,7 +153,12 @@ $(document).ready(function () {
           error: function (xhr, status, error) {
             console.log("Güncelleme işlemi başarısız:", error);
           },
-        });
-      });
-  });
-});
+        }); //end put Ajax
+      }); //end submit 
+    } else {
+      console.error(`${id} nolu Blog silinmedi`);
+    } //end else
+  }); //end Güncelleme
+
+
+}); //end Document.Ready
