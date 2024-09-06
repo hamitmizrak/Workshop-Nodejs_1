@@ -1,7 +1,7 @@
 {
   "name": "blog_project",
   "version": "1.0.0",
-  "description": "Html5,css3, js, es, nodejs, jquery, express\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D bootstrap5, nodejs, javascript, jquery, express js",
+  "description": "Html5,css3, js, es, nodejs, jquery, express, bootstrap5, nodejs, javascript, jquery, express js",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

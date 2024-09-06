@@ -6,12 +6,20 @@
 
 // jQuery
 $(document).ready(function () {
+  // Formu Temizleme Functionu
+  const reset = () => {
+    // Formu temizlemek için
+    $("#blog-form")[0].reset();
+  };
+
+  /////////////////////////////////////////////////////////////
   // Blog List
   function blogList() {
     $.ajax({
       url: "/blog",
       method: "GET",
       success: function (data) {
+        // blogList function içerik listesini temizlemek için kullandım.
         $("#blog-table tbody").empty();
 
         // forEach
@@ -25,8 +33,8 @@ $(document).ready(function () {
                     <td>${item.date}</td>
 
                     <td>
-                        <button class="btn btn-primary edit-btn">Güncelle</button>
-                        <button class="btn btn-danger delete-btn">Sil</button>
+                        <button class="btn btn-primary edit-btn"><i class="fa-solid fa-wrench"></i></button>
+                        <button class="btn btn-danger delete-btn"><i class="fa-solid fa-trash"></i></button>
                     </td>
 
                 </tr>
@@ -42,6 +50,7 @@ $(document).ready(function () {
   ////////////////////////////////////////////////////
   // blog Ekleme
   $("#blog-form").on("submit", function (event) {
+    // Browser'a otomatik olarak herhangi bir veri göndermesini kısıtkadım.
     event.preventDefault();
 
     // Blog Form'da verileri almak için
@@ -60,7 +69,11 @@ $(document).ready(function () {
       success: function (data) {
         // Ekledikten sonraki işlem için listeyi tazele
         blogList();
+        // Formu temizlemek için
+        // 1.YOL
         $("#blog-form")[0].reset();
+        // 2.YOL
+        //reset()
       }, //end success
       error: function (xhr, status, error) {
         console.log("Blog Ekleme işlemi başarısız:", error); // Hata mesajını göster
@@ -70,8 +83,11 @@ $(document).ready(function () {
 
   ////////////////////////////////////////////////////
   // Blog Silme
+  // confirm 
   $("#blog-table tbody").on("click", ".delete-btn", function () {
     alert("silme");
+
+    // İlgili satırdaki id almak için
     const id = $(this).closest("tr").data("id");
 
     // Silme (Ajax)
@@ -88,6 +104,7 @@ $(document).ready(function () {
     });
   });
 
+  /////////////////////////////////////////////////////////////
   // Blog Güncelleme
   $("#blog-table tbody").on("click", ".edit-btn", function () {
     alert("güncelleme");

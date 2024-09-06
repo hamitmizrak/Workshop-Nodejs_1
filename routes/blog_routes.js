@@ -5,7 +5,7 @@ Yazacağımız API ile MongoDB veritabanında blog projemiz için yazma, okuma, 
 Aşağıdaki kodta Exress.js yardımıyla Router  nesnesini farklı HTTP isteklerine cevap verebilecek router yapılar oluşturulacaktır.
 */
 
-/////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import Express (Express:  Node.js için esnek bir web uygulama çatısını inşa eder)
 // Bu modlüller beraber HTTP istekleri(request) işleyecek ve istemciye(server) yanıt dönecektir.
 const express = require("express");
@@ -16,12 +16,17 @@ const router = express.Router();
 // Import Mongoose Schema
 const MongooseBlogModelApi = require("../models/mongoose_blog_models");
 
-//////////////////////////////////////////////////////////////////////
-// C R U D
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// C R U D API (Node.js ve Express.js tabanlı blog API yönetim sistemini MONGODB ile bağlantı kurması için bu API'ları yazıyoruz.)
+// Dikkat: `router.` sonda yapılacak işlemlerde:  get(find, list), post(create), put(Güncelleme), delete(Silme) yazmak zorundayız.
 
-////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CREATE BLOG
-router.post("/", async (request, response) => {
+// POST isteği ile yeni bir blog datası oluşturuyoruz. 
+// Gönderilen bu veriri almak için request.body ile içeri aktarmış olacağız.
+// http://localhost:3000
+router.post("/", async (request, response) => {`
+  `
   // Mongoose Blog Model Verileri Almak
   const create = new MongooseBlogModelApi({
     header: request.body.header,
@@ -31,7 +36,9 @@ router.post("/", async (request, response) => {
 
   // Mongoose Blog Model Alınan Verileri Göndermek
   try {
-    await create.save(); // Database kaydetmek
+    // Database kaydetmek
+    await create.save(); 
+    // Başarılı durumda status(200) döndüğünde 
     response.status(200).json(create);
   } catch (err) {
     response
@@ -45,7 +52,8 @@ router.post("/", async (request, response) => {
 
 
 ////////////////////////////////
-// FIND BLOG
+// FIND BLOG (Tüm Blog verilerini listelemek için)
+// http://localhost:3000
 router.get("/", async (request, response) => {
   try {
     const find = await MongooseBlogModelApi.find();
@@ -64,6 +72,7 @@ router.get("/", async (request, response) => {
 ////////////////////////////////
 // UPDATE BLOG
 // Güncelleme ve Silme işlemlerinde ID'e göre yapılır.
+// http://localhost:3000/1
 router.put("/:id", async (request, response) => {
   try {
     const update = await MongooseBlogModelApi.findByIdAndUpdate(
@@ -85,6 +94,7 @@ router.put("/:id", async (request, response) => {
 
 ////////////////////////////////
 // DELETE BLOG
+// http://localhost:3000/1
 router.delete("/:id", async (request, response) => {
   try {
     const id= request.params.id;
@@ -104,6 +114,17 @@ router.delete("/:id", async (request, response) => {
 }); // end blogDelete
 
 
+
+////////////////////////////////
+/*
+NOT: Yukarıda yazdımız veri için Postman, cURL gibi API test araçlarını kullanabilirsiniz.
+örnek bir CREATE(post) 
+{
+"header": "Blog başlığı",
+"content": "Blog içeriği",
+"author": "Hamit Mızrak",
+}
+*/
 
 ////////////////////////////////
 // Export 

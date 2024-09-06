@@ -1,4 +1,3 @@
-//alert("index.js Javascript çalıştı");
 
 //console.error("index.js Javascript error");
 //console.warn("index.js Javascript warn");
@@ -13,7 +12,6 @@ console.info("index.js Server ayağa kalktı");
 /////////////////////////////////////////////////////////////////////////////
 
 // Express, Mongo, BodyParser
-
 // Import
 const express = require('express');
 const mongoose = require('mongoose');
@@ -60,5 +58,5 @@ app.get('/', (request,response)=>{
 //const port= 3000;
 const port= 1111; // nginx için değiştirdim.
 app.listen(port,()=>{
-    console.log(`Sunucu: ${port} portunda dinliyor. http://localhost:${port}`);
+    console.log(`NodeJS Sunucusu: ${port} portunda dinliyor. http://localhost:${port}`);
 });
